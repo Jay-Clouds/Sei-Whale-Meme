@@ -27,7 +27,7 @@ export const Footer = () => {
                 </div>
               </div>
               <p className="mb-10 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">
-                Sei Whale is open for collaboration 🎉  Send any quesstions or inquiries you might have
+                Sei Whale is open for collaboration! Send any quesstions or inquiries you might have
                 <a
                   href="mailto:jay@seiwhale.meme"
                   target="_blank"
