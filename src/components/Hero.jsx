@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { InvitationModal } from "./InvitationModal";
-import dashboard from "../assets/images/dashboard.jpg?url";
+import { BuyModal } from "./BuyModal";
+import SeiWhale from "../assets/images/SeiWhale.png?url";
 
 export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section
-      className="w-screen  flex justify-center items-center bg-customDarkBg1 mb-[28vw] md:mb-[18vw] lg:mb-[10vw] xl:mb-[13vw] 2xl:mb-60 hero-bg-gradient pb-24 sm:pb-32 md:pb-44 lg:pb-0"
+      className="w-screen flex justify-center items-center bg-customDarkBg1 mb-[14vw] md:mb-[9vw] lg:mb-[5vw] xl:mb-[6.5vw] 2xl:mb-30 hero-bg-gradient pb-12 sm:pb-16 md:pb-22 lg:pb-0"
       id="home"
     >
       <div className="w-full md:w-[800px] xl:w-[900px] flex flex-col justify-center items-center pt-16 md:pt-16 lg:pt-20 text-center">
@@ -18,8 +18,8 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-customSecondary text-sm sm:text-base  mb-6 sm:mt-32 mt-16  font-bold">
-            Ticker $SEI
+          <div className="text-customPrimary text-sm sm:text-base  mb-6 sm:mt-16 mt-8  font-bold">
+            🤑 Ticker $SEI
           </div>
         </motion.div>
         <motion.div
@@ -28,11 +28,15 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
         >
           <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-white  px-8 sm:px-8 md:px-20 lg:px-4">
-            <span className="inline md:hidden">Analytics</span>
-            <span className="hidden md:inline">Analytic tools suite</span>
+            <span className="inline md:hidden">Sei Whale 🐳</span>
+            <span className="hidden md:inline">Sei The Whale 🐳</span>
           </div>
-          <div className="mt-2 sm:mt-2 text-4xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-white  px-8 sm:px-20 md:px-24 lg:px-24">
-            for developers
+          <div className="justify-center items-center flex flex-col sm:flex-row gap-2 sm:gap-4 mt-10">
+            <img src={SeiWhale} alt="Sei Whale" width="300" height="300">
+            </img>
+          </div>
+          <div className="mt-10 sm:mt-10 text-1xl sm:text-1xl lg:text-2xl xl:text-3xl font-bold tracking-wide  text-customSecondary  px-8 sm:px-20 md:px-24 lg:px-24">
+            Contract
           </div>
         </motion.div>
         <motion.div
@@ -40,29 +44,29 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="text-customGrayText text-sm lg:text-base xl:text-lg sm:text-base mt-10 px-12 sm:px-48 ">
-            Experience seamless business integrations and powerful insights with
-            our cutting-edge analytic tools.
+          <div className="text-customGrayText text-xs lg:text-sm xl:text-base sm:text-sm mt-1 px-12 sm:px-48 ">
+            sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j
           </div>
         </motion.div>
         <motion.div
+          id="about"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div className="flex flex-col gap-2 sm:flex-row mt-14 mb-24 sm:mb-40 justify-center">
+          <div className="flex flex-col gap-2 sm:flex-row mt-14 mb-16 sm:mb-32 justify-center">
             <div
               className="custom-button-colored w-64 sm:w-52 h-12 mr-0 sm:mr-4 lg:mr-6 mb-2 sm:mb-0"
               onClick={() => setIsModalOpen(true)}
             >
-              Get Started
+              🚀 Buy Now
             </div>
-            <div
+            <a
+              href="#chart"
               className="w-64 sm:w-52 h-12 rounded-xl font-bold text-white border border-solid  flex justify-center items-center cursor-pointer bg-customDarkBg2 hover:bg-customDarkBg3 border-customPrimary transition"
-              onClick={() => setIsModalOpen(true)}
             >
-              Live demo
-            </div>
+              📈 Chart
+            </a>
           </div>
         </motion.div>
         <motion.div
@@ -70,16 +74,28 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0, zIndex: 20 }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div className="relative w-screen flex justify-center ">
-            <img
-              src={dashboard}
-              alt="123"
-              className="w-4/5 2xl:w-[1200px] mx-auto absolute z-10 rounded-xl custom-border-gray hero-dashboard-border-gradient lg:top-6 xl:top-0"
-            />
+          <div className="text-customGrayText text-xs lg:text-sm xl:text-base sm:text-sm mt-1 pb-6 px-12 sm:px-22 ">
+           Sei the Whale 🐳 is the flagship meme token of the SEI network. Named after the Sei Whale by <span className="text-customPrimary">Jay the founder of SEI</span>, one of the fastest whales <span className="text-customPrimary">=fast transactions</span> that swims in deep waters <span className="text-customPrimary">=deep liqudity</span>. Sei the Whale is a community-driven token that aims to bring the SEI network to the masses
+          </div>
+          <div className="text-customPrimary font-bold text-xs lg:text-sm xl:text-base sm:text-sm mt-8 px-3 sm:px-6 flex justify-center">
+          <div className="flex space-x-8">
+          <a href="https://www.seiscan.app/pacific-1/txs/38AFAE34037A604C6ADD67AC33C47269305D7D29CFC5EC90B64B9200F536A8E7" target="_blank" rel="noopener noreferrer">
+            <span>100% LP Burned</span>
+          </a>
+          <a href="https://www.seiscan.app/pacific-1/txs/D4CFE033B4FE2A2F370848088BC1CC1F3CAA0EDF6695F9C1A06718B9FE7B8A43" target="_blank" rel="noopener noreferrer">
+            <span>Admin Cleared</span>
+          </a>
+          <a href="https://www.seiscan.app/pacific-1/txs/38AFAE34037A604C6ADD67AC33C47269305D7D29CFC5EC90B64B9200F536A8E7" target="_blank" rel="noopener noreferrer">
+            <span>Minter Renounced</span>
+          </a>
+          </div>
+        </div>
+        <div className="text-customSecondary font-bold text-xs lg:text-sm xl:text-base mt-12 -mb-20 sm:text-sm px-3 sm:px-6 flex justify-center">
+            📦 Total Supply = 1,000,000,000
           </div>
         </motion.div>
-        <div className="relative w-screen flex justify-center ">
-          <div className="custom-shape-divider-bottom-1665343298 mt-4 sm:mt-16 md:mt-52 hidden lg:block">
+        <div className="relative w-screen flex justify-center">
+          <div className="custom-shape-divider-bottom-1665343298 mt-4 sm:mt-8 md:mt-26 hidden lg:block">
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +112,7 @@ export const Hero = () => {
         </div>
       </div>
       {isModalOpen && (
-        <InvitationModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+        <BuyModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
       )}
     </section>
   );

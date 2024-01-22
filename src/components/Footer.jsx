@@ -1,28 +1,14 @@
-import { FacebookIcon } from "../assets/icons/FacebookIcon";
-import { InstagramIcon } from "../assets/icons/InstagramIcon";
 import { SeiWhaleLogo } from "../assets/logos/SeiWhaleLogo";
 import { TwitterIcon } from "../assets/icons/TwitterIcon";
+import { TelegramIcon } from "../assets/icons/TelegramIcon";
+import { DiscordIcon } from "../assets/icons/DiscordIcon";
 
 const footerData = [
   {
-    title: "Products",
-    items: ["Services", "About Us", "News and Stories", "Roadmap"],
+    title: "Utility",
+    items: ["Token Holder Bot", "Coming Soon 👀", "Coming Soon 👀", "Coming Soon 👀"],
   },
-  {
-    title: "Important Links",
-    items: [
-      "Organization Team",
-      "Our Journeys",
-      "Pricing Plans",
-      "Roadmap",
-      "Terms & Conditions",
-      "Privacy Policy",
-    ],
-  },
-  {
-    title: "Company",
-    items: ["About Us", "Jobs", "Press", "Contact Us"],
-  },
+  //add more sections here if needed (maybe privacy policy for when we build utility that generates revenue)
 ];
 
 export const Footer = () => {
@@ -36,82 +22,47 @@ export const Footer = () => {
                 <div className="text-white mr-3 text-6xl">
                   <SeiWhaleLogo />
                 </div>
-                <div className="text-white font-['Inter'] font-bold text-xl">
+                <div className="text-customSecondary font-['Inter'] font-bold text-xl">
                   Sei Whale
                 </div>
               </div>
               <p className="mb-10 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">
-                Dashboard images were made using free Dark Admin dashboard that
-                you can find
+                Sei Whale is open for collaboration 🎉  Send any quesstions or inquiries you might have
                 <a
-                  href="https://bootstrapious.com/p/bootstrap-4-dark-admin"
+                  href="mailto:jay@seiwhale.meme"
                   target="_blank"
                   className="text-gray-100 ml-1.5 "
-                  aria-label="DarkAdmin"
+                  aria-label="Sei Whale Email"
                 >
-                  here.
+                  here
                 </a>
               </p>
               <div className="w-36 mx-auto lg:mx-0">
                 <a
                   className="inline-block w-10  h-10 mr-2 p-2 bg-customDarkBg2 custom-border-gray  hover:bg-gray-700 rounded-xl"
-                  href="#"
-                >
-                  <FacebookIcon />
-                </a>
-                <a
-                  className="inline-block w-10  h-10 mr-2 p-2 bg-customDarkBg2 custom-border-gray  hover:bg-gray-700 rounded-xl"
-                  href="#"
+                  href="https://twitter.com/SeiTheWhale"
                 >
                   <TwitterIcon />
                 </a>
                 <a
                   className="inline-block w-10  h-10 mr-2 p-2 bg-customDarkBg2 custom-border-gray  hover:bg-gray-700 rounded-xl"
-                  href="#"
+                  href="https://t.me/seithewhale"
                 >
-                  <InstagramIcon />
+                  <TelegramIcon />
+                </a>
+                <a
+                  className="inline-block w-10  h-10 mr-2 p-2 bg-customDarkBg2 custom-border-gray  hover:bg-gray-700 rounded-xl"
+                  href="https://discord.gg/5Q5qjX6Z"
+                >
+                  <DiscordIcon />
                 </a>
               </div>
             </div>
-            <div className="w-full lg:w-2/3  lg:pl-16 hidden lg:flex flex-wrap justify-between">
+            <div className="w-full lg:w-2/3  lg:pl-16 hidden lg:flex flex-wrap justify-end pr-5">
               <div className="w-full md:w-1/3 lg:w-auto mb-16 md:mb-0">
-                <h3 className="mb-6 text-2xl font-bold text-white">Products</h3>
+                <h3 className="mb-6 text-2xl font-bold text-white">Utility</h3>
                 <ul>
                   {footerData[0].items.map((item, i) => (
-                    <li key={i} className="mb-4">
-                      <a
-                        className="text-gray-400 hover:text-gray-300"
-                        href="#"
-                        aria-label=""
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="w-full md:w-1/3 lg:w-auto mb-16 md:mb-0">
-                <h3 className="mb-6 text-2xl font-bold text-white">
-                  Important Links
-                </h3>
-                <ul>
-                  {footerData[1].items.map((item, i) => (
-                    <li key={i} className="mb-4">
-                      <a
-                        className="text-gray-400 hover:text-gray-300"
-                        href="#"
-                        aria-label=""
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="w-full md:w-1/3 lg:w-auto">
-                <h3 className="mb-6 text-2xl font-bold text-white">Company</h3>
-                <ul>
-                  {footerData[2].items.map((item, i) => (
                     <li key={i} className="mb-4">
                       <a
                         className="text-gray-400 hover:text-gray-300"
@@ -127,7 +78,7 @@ export const Footer = () => {
             </div>
           </div>
           <p className="lg:text-center text-sm text-gray-400 border-t border-[rgb(255,255,255,0.2)] pt-12 mt-16 hidden lg:block">
-            &copy; 2022. MIT license.
+            &copy; 2024 Sei Whale
           </p>
         </div>
       </div>

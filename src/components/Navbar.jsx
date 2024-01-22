@@ -2,14 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { SeiWhaleLogo } from "../assets/logos/SeiWhaleLogo";
-import { GithubIcon } from "../assets/icons/GithubIcon";
+import { DiscordIcon } from "../assets/icons/DiscordIcon";
+import { TwitterIcon } from "../assets/icons/TwitterIcon";
+import { TelegramIcon } from "../assets/icons/TelegramIcon";
 
 const navbarLinks = [
-  { label: "Home", href: "#home", ariaLabel: "Home" },
-  { label: "Features", href: "#features", ariaLabel: "Features" },
-  { label: "Pricing", href: "#pricing", ariaLabel: "Pricing" },
-  { label: "Feedback", href: "#feedback", ariaLabel: "Feedback" },
-  { label: "FAQ", href: "#FAQ", ariaLabel: "FAQ" },
+  { label: "About", href: "#about", ariaLabel: "About" },
+  { label: "Chart", href: "#chart", ariaLabel: "Chart" },
+  { label: "Memes", href: "#memes", ariaLabel: "Memes" },
 ];
 
 export const Navbar = () => {
@@ -41,7 +41,7 @@ export const Navbar = () => {
           transition={{ duration: 0.3 }}
           exit={{ opacity: 0 }}
         >
-          <div className="hidden lg:flex h-full pl-12 pb-2">
+          <div className="hidden lg:flex h-full pb-2">
             {navbarLinks.map(({ href, label, ariaLabel }) => (
               <a
                 className="navbar-link"
@@ -62,14 +62,28 @@ export const Navbar = () => {
         >
           <div className="grow basis-0 justify-end hidden lg:flex">
             <a
-              className="text-white custom-border-gray rounded-xl
-           bg-customDarkBg2 hover:bg-customDarkBg3  border-gray-700 pl-6 pr-8 pt-2 pb-2 text-sm flex"
-              href="https://github.com/matt765/Tidestream"
+              className="text-white custom-border-gray rounded-xl bg-customDarkBg2 hover:bg-customDarkBg3 border-gray-700 pl-3 pr-3 pt-2 pb-2 mr-2"
+              href="https://twitter.com/SeiTheWhale"
               target="_blank"
-              aria-label="source code"
+              aria-label="X"
             >
-              <GithubIcon />
-              <span className="pt-px">Source code</span>
+              <TwitterIcon />
+            </a>
+            <a
+              className="text-white custom-border-gray rounded-xl bg-customDarkBg2 hover:bg-customDarkBg3 border-gray-700 pl-3 pr-3 pt-2 pb-2 mr-2"
+              href="https://t.me/seithewhale"
+              target="_blank"
+              aria-label="Telegram"
+            >
+              <TelegramIcon />
+            </a>
+            <a
+              className="text-white custom-border-gray rounded-xl bg-customDarkBg2 hover:bg-customDarkBg3 border-gray-700 pl-3 pr-3 pt-2 pb-2"
+              href="https://discord.gg/seithewhale"
+              target="_blank"
+              aria-label="Discord"
+            >
+              <DiscordIcon />
             </a>
           </div>
         </motion.div>
@@ -107,15 +121,32 @@ export const Navbar = () => {
                   {label}
                 </a>
               ))}
+              <div className="flex justify-center space-x-4">
               <a
                 className="text-white custom-border-gray rounded-xl
-           bg-customDarkBg2 hover:bg-customDarkBg3  border-gray-700 pl-6 pr-8 pt-2 pb-2 text-sm flex"
-                href="https://github.com/matt765/Tidestream"
+           bg-customDarkBg2 hover:bg-customDarkBg3  border-gray-700 pl-3 pr-3 pt-2 pb-2"
+                href="https://twitter.com/SeiTheWhale"
                 target="_blank"
               >
-                <GithubIcon />
-                Source code
+                <TwitterIcon />
               </a>
+              <a
+                className="text-white custom-border-gray rounded-xl
+           bg-customDarkBg2 hover:bg-customDarkBg3  border-gray-700 pl-3 pr-3 pt-2 pb-2"
+                href="https://t.me/seithewhale"
+                target="_blank"
+              >
+                <TelegramIcon />
+              </a>
+              <a
+                className="text-white custom-border-gray rounded-xl
+           bg-customDarkBg2 hover:bg-customDarkBg3  border-gray-700 pl-3 pr-3 pt-2 pb-2"
+                href="https://discord.gg/seithewhale"
+                target="_blank"
+              >
+                <DiscordIcon />
+              </a>
+              </div>
             </div>
           </motion.div>
         )}
