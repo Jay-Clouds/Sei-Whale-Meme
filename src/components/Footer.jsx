@@ -1,6 +1,6 @@
 import { FacebookIcon } from "../assets/icons/FacebookIcon";
 import { InstagramIcon } from "../assets/icons/InstagramIcon";
-import { TailcastLogo } from "../assets/logos/TailcastLogo";
+import { SeiWhaleLogo } from "../assets/logos/SeiWhaleLogo";
 import { TwitterIcon } from "../assets/icons/TwitterIcon";
 
 const footerData = [
@@ -33,11 +33,11 @@ export const Footer = () => {
           <div className="flex flex-wrap">
             <div className="w-full lg:w-1/3 mb-16 lg:mb-0">
               <div className="flex justify-center lg:justify-start items-center grow basis-0">
-                <div className="text-white mr-2 text-6xl">
-                  <TailcastLogo />
+                <div className="text-white mr-3 text-6xl">
+                  <SeiWhaleLogo />
                 </div>
                 <div className="text-white font-['Inter'] font-bold text-xl">
-                  Tailcast
+                  Sei Whale
                 </div>
               </div>
               <p className="mb-10 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">

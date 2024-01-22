@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { TailcastLogo } from "../assets/logos/TailcastLogo";
+import { SeiWhaleLogo } from "../assets/logos/SeiWhaleLogo";
 import { GithubIcon } from "../assets/icons/GithubIcon";
 
 const navbarLinks = [
@@ -26,11 +26,11 @@ export const Navbar = () => {
         >
           <a className="navbar-link" href="#home" aria-label="Home">
             <div className="flex justify-start items-center grow basis-0">
-              <div className="text-white mr-2 text-6xl">
-                <TailcastLogo />
+              <div className="text-white mr-3 text-6xl">
+                <SeiWhaleLogo />
               </div>
-              <div className="text-white font-['Inter'] font-bold text-xl">
-                Tailcast
+              <div className="text-customSecondary font-['Inter'] font-bold text-xl">
+                Sei Whale
               </div>
             </div>
           </a>
