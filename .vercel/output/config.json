@@ -14,10 +14,6 @@
 		{
 			"src": "^\\/_image$",
 			"dest": "render"
-		},
-		{
-			"src": "^\\/$",
-			"dest": "render"
 		}
 	]
 }
