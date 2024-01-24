@@ -37,7 +37,7 @@ export const BuyModal = ({ setIsOpen }) => (
                   Sei Whale
                 </div>
               </div>
-              <div className="flex flex-wrap -m-2">
+              <div className="flex flex-wrap -m- justify-center">
               <div className="w-full sm:w-4/5 p-2 mt-4 mx-auto">
               <a
                 href="https://coinhall.org/sei/sei10zr25ev9etv6kme8w0fqjplmnlxgrl5lpcphckp206s8e8x87chs4p8jgh"
