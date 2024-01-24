@@ -11,14 +11,15 @@ export const BuyModal = ({ setIsOpen }) => (
       transition={{ duration: 0.1 }}
       exit={{ opacity: 0 }}
     >
-      <div
-        className="w-full h-full  bg-customDarkBgTransparentDarker fixed top-0 left-0 flex  z-50 justify-center items-center"
-        onClick={() => setIsOpen(false)}
-      >
         <div
-          className="w-full h-screen sm:h-auto sm:w-3/4 md:w-3/5 lg:w-[1000px] xl:w-[1100px] sm:rounded-2xl bg-customDarkBgTransparentLighter custom-border-gray-darker py-12 px-8 sm:px-16 backdrop-blur-xl sm:mb-8 fixed mx-auto z-50"
-          onClick={(e) => e.stopPropagation()}
+          className="w-full h-full bg-customDarkBgTransparentDarker fixed top-0 left-0 flex z-50 justify-center items-center"
+          onClick={() => setIsOpen(false)}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} // Add these styles
         >
+          <div
+            className="w-full h-full sm:h-auto sm:w-3/4 md:w-3/5 lg:w-[1000px] xl:w-[1100px] sm:rounded-2xl bg-customDarkBgTransparentLighter custom-border-gray-darker py-12 px-8 sm:px-16 backdrop-blur-xl sm:mb-8 fixed mx-auto z-50"
+            onClick={(e) => e.stopPropagation()}
+          >
           <div className="flex relative justify-center">
             <div className="w-1/2 lg:inline hidden flex-col items-center pt-2">
               <h2 className="mt-6 mb-4 text-5xl font-bold tracking-normal text-white">
