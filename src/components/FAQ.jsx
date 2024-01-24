@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+import { CopyToClipboard } from './CopyToClipboard';
+
+
 const FAQData = [
   {
     question: "💼 What wallets to use?",
@@ -41,18 +44,13 @@ const FAQData = [
     question: "🪙 How to view Sei Whale tokens in wallet?",
     answer: (
       <>
-        <span className="text-customPrimary">● </span>Copy CA:{" "}
-        <span
-          className="text-sm cursor-pointer text-customPrimary hover:text-customSecondary"
-          onClick={() =>
-            copyToClipboard(
-              "sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j"
-            )
-          }
-        >
-          Click to copy
-        </span>
-        <br />
+        <div className="flex items-center cursor-pointer">
+          <span className="text-customPrimary">●&nbsp;</span>
+          <span>Copy CA:&nbsp;</span>
+          <span className="text-sm cursor-pointer text-customPrimary hover:text-customSecondary">
+            <CopyToClipboard content="sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j" copyText="Click to copy" />
+          </span>
+        </div>
         <span className="text-customPrimary">● </span>Select manage tokens or add tokens
         <br />
         <span className="text-customPrimary">● </span>Paste CA and toggle on to display token (cw20)
@@ -142,14 +140,4 @@ const FAQBox = ({ defaultOpen, title, content }) => {
       </div>
     </div>
   );
-};
-
-const copyToClipboard = async (event) => {
-  event.stopPropagation();
-  try {
-    await navigator.clipboard.writeText(text);
-    setIsCopied(true);
-  } catch (err) {
-    console.error('Failed to copy text: ', err);
-  }
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { BuyModal } from "./BuyModal";
+import { CopyToClipboard } from './CopyToClipboard';
 import SeiWhale from "../assets/images/SeiWhale.png?url";
 import JayXpost from "../assets/images/jayxswpost.png?url";
 
@@ -44,8 +45,10 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="w-full text-customGrayText text-2xs lg:text-sm xl:text-base sm:text-sm mt-1">
-            sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j
+          <div className="flex items-center text-customGrayText text-2xs lg:text-sm xl:text-base sm:text-sm mt-1">
+            <CopyToClipboard
+              content="sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j"
+              copyText="sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j" />
           </div>
         </motion.div>
         <motion.div
