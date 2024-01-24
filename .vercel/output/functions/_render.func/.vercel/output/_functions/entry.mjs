@@ -1,8 +1,8 @@
 import 'node:fs';
-import { e as appendForwardSlash, j as joinPaths, t as trimSlashes, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, f as collapseDuplicateSlashes } from './chunks/astro/assets-service_BvW4caR8.mjs';
+import { e as appendForwardSlash, j as joinPaths, t as trimSlashes, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, f as collapseDuplicateSlashes } from './chunks/astro/assets-service_WLY9V9Y-.mjs';
 import { serialize, parse } from 'cookie';
-import { A as AstroError, R as ResponseSentError, l as MiddlewareNoDataOrNextCalled, n as MiddlewareNotAResponse, G as GetStaticPathsRequired, o as InvalidGetStaticPathsReturn, p as InvalidGetStaticPathsEntry, q as GetStaticPathsExpectedParams, t as GetStaticPathsInvalidRouteParam, P as PageNumberParamNotFound, N as NoMatchingStaticPathFound, u as PrerenderDynamicEndpointPathCollide, v as LocalsNotAnObject, w as ASTRO_VERSION, C as ClientAddressNotAvailable, S as StaticClientAddressNotAvailable, x as renderEndpoint, y as ReservedSlotName, z as renderSlotToString, B as renderJSX, D as chunkToString, F as CantRenderPage, H as renderPage$1 } from './chunks/astro_zhhrjLl5.mjs';
-import { l as levels, g as getEventPrefix, L as Logger, A as AstroIntegrationLogger, manifest } from './manifest_yv8Qf_Li.mjs';
+import { A as AstroError, R as ResponseSentError, l as MiddlewareNoDataOrNextCalled, n as MiddlewareNotAResponse, G as GetStaticPathsRequired, o as InvalidGetStaticPathsReturn, p as InvalidGetStaticPathsEntry, q as GetStaticPathsExpectedParams, t as GetStaticPathsInvalidRouteParam, P as PageNumberParamNotFound, N as NoMatchingStaticPathFound, u as PrerenderDynamicEndpointPathCollide, v as LocalsNotAnObject, w as ASTRO_VERSION, C as ClientAddressNotAvailable, S as StaticClientAddressNotAvailable, x as renderEndpoint, y as ReservedSlotName, z as renderSlotToString, B as renderJSX, D as chunkToString, F as CantRenderPage, H as renderPage$1 } from './chunks/astro_bIMeGSqA.mjs';
+import { l as levels, g as getEventPrefix, L as Logger, A as AstroIntegrationLogger, manifest } from './manifest_eLw6iTgA.mjs';
 import 'kleur/colors';
 import 'html-escaper';
 import 'clsx';
@@ -14,6 +14,23 @@ import 'node:url';
 import 'node:fs/promises';
 import 'node:module';
 import { renderers } from './renderers.mjs';
+
+function shouldAppendForwardSlash(trailingSlash, buildFormat) {
+  switch (trailingSlash) {
+    case "always":
+      return true;
+    case "never":
+      return false;
+    case "ignore": {
+      switch (buildFormat) {
+        case "directory":
+          return true;
+        case "file":
+          return false;
+      }
+    }
+  }
+}
 
 function getPathByLocale(locale, locales) {
   for (const loopLocale of locales) {
@@ -63,7 +80,7 @@ function pathnameHasLocale(pathname, locales) {
   }
   return false;
 }
-function createI18nMiddleware(i18n, base, trailingSlash) {
+function createI18nMiddleware(i18n, base, trailingSlash, buildFormat) {
   if (!i18n) {
     return void 0;
   }
@@ -106,7 +123,7 @@ function createI18nMiddleware(i18n, base, trailingSlash) {
         }
         case "pathname-prefix-always": {
           if (url.pathname === base + "/" || url.pathname === base) {
-            if (trailingSlash === "always") {
+            if (shouldAppendForwardSlash(trailingSlash, buildFormat)) {
               return context.redirect(`${appendForwardSlash(joinPaths(base, i18n.defaultLocale))}`);
             } else {
               return context.redirect(`${joinPaths(base, i18n.defaultLocale)}`);
@@ -1384,11 +1401,6 @@ class Pipeline {
     before: []
   };
   /**
-   * The handler accepts the *original* `Request` and result returned by the endpoint.
-   * It must return a `Response`.
-   */
-  #endpointHandler;
-  /**
    * When creating a pipeline, an environment is mandatory.
    * The environment won't change for the whole lifetime of the pipeline.
    */
@@ -1396,14 +1408,6 @@ class Pipeline {
     this.env = env;
   }
   setEnvironment() {
-  }
-  /**
-   * When rendering a route, an "endpoint" will a type that needs to be handled and transformed into a `Response`.
-   *
-   * Each consumer might have different needs; use this function to set up the handler.
-   */
-  setEndpointHandler(handler) {
-    this.#endpointHandler = handler;
   }
   /**
    * A middleware function that will be called before each request.
@@ -1430,22 +1434,7 @@ class Pipeline {
     for (const hook of this.#hooks.before) {
       hook(renderContext, componentInstance);
     }
-    const result = await this.#tryRenderRoute(
-      renderContext,
-      this.env,
-      componentInstance,
-      this.#onRequest
-    );
-    if (renderContext.route.type === "endpoint") {
-      if (!this.#endpointHandler) {
-        throw new Error(
-          "You created a pipeline that does not know how to handle the result coming from an endpoint."
-        );
-      }
-      return this.#endpointHandler(renderContext.request, result);
-    } else {
-      return result;
-    }
+    return await this.#tryRenderRoute(renderContext, this.env, componentInstance, this.#onRequest);
   }
   /**
    * It attempts to render a route. A route can be a:
@@ -1506,25 +1495,7 @@ class Pipeline {
   }
 }
 
-class EndpointNotFoundError extends Error {
-  originalResponse;
-  constructor(originalResponse) {
-    super();
-    this.originalResponse = originalResponse;
-  }
-}
 class SSRRoutePipeline extends Pipeline {
-  constructor(env) {
-    super(env);
-    this.setEndpointHandler(this.#ssrEndpointHandler);
-  }
-  // This function is responsible for handling the result coming from an endpoint.
-  async #ssrEndpointHandler(request, response) {
-    if (response.headers.get("X-Astro-Response") === "Not-Found") {
-      throw new EndpointNotFoundError(response);
-    }
-    return response;
-  }
 }
 
 const localsSymbol = Symbol.for("astro.locals");
@@ -1678,7 +1649,8 @@ class App {
       const i18nMiddleware = createI18nMiddleware(
         this.#manifest.i18n,
         this.#manifest.base,
-        this.#manifest.trailingSlash
+        this.#manifest.trailingSlash,
+        this.#manifest.buildFormat
       );
       if (i18nMiddleware) {
         if (mod.onRequest) {
@@ -1694,20 +1666,17 @@ class App {
       }
       response = await this.#pipeline.renderRoute(renderContext, pageModule);
     } catch (err) {
-      if (err instanceof EndpointNotFoundError) {
-        return this.#renderError(request, { status: 404, response: err.originalResponse });
-      } else {
-        this.#logger.error(null, err.stack || err.message || String(err));
-        return this.#renderError(request, { status: 500 });
-      }
+      this.#logger.error(null, err.stack || err.message || String(err));
+      return this.#renderError(request, { status: 500 });
     }
-    if (routeData.type === "page" || routeData.type === "redirect") {
-      if (REROUTABLE_STATUS_CODES.has(response.status)) {
-        return this.#renderError(request, {
-          response,
-          status: response.status
-        });
-      }
+    if (REROUTABLE_STATUS_CODES.has(response.status) && response.headers.get("X-Astro-Reroute") !== "no") {
+      return this.#renderError(request, {
+        response,
+        status: response.status
+      });
+    }
+    if (response.headers.has("X-Astro-Reroute")) {
+      response.headers.delete("X-Astro-Reroute");
     }
     if (addCookieHeader) {
       for (const setCookieHeaderValue of App.getSetCookieFromResponse(response)) {
@@ -2105,8 +2074,8 @@ const adapter = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   createExports
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const _page0  = () => import('./chunks/generic_JmbrBXEO.mjs');
-const _page1  = () => import('./chunks/index_XsZhCQ2l.mjs');const pageMap = new Map([["node_modules/astro/dist/assets/endpoint/generic.js", _page0],["src/pages/index.astro", _page1]]);
+const _page0  = () => import('./chunks/generic_T0NEKtIo.mjs');
+const _page1  = () => import('./chunks/index_o4U6WnVZ.mjs');const pageMap = new Map([["node_modules/astro/dist/assets/endpoint/generic.js", _page0],["src/pages/index.astro", _page1]]);
 const _manifest = Object.assign(manifest, {
 	pageMap,
 	renderers,
