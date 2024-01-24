@@ -13,7 +13,7 @@
 		},
 		{
 			"src": "^\\/_image$",
-			"dest": "render"
+			"dest": "_render"
 		}
 	]
 }
