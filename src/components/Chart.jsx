@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export const Chart = () => {
   return (
     <section
-      className="w-full bg-customDarkBg2 mt-10 mb-8 sm:mt-8 sm:mb-16 xl:mt-0 xl:m pt-[2rem] md:pt-[12vw] lg:pt-0"
+    className="w-full bg-customDarkBg2 mt-8 mb-8 sm:mt-8 sm:mb-8 xl:mt-8 xl:mb-8"
       id="chart"
     >
       <motion.div

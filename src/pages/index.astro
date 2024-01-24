@@ -11,12 +11,15 @@ import { Footer } from "../components/Footer.jsx";
 import { ScrollUpButton } from "../components/ScrollUpButton";
 import "../styles/Theme.css";
 import "../styles/Diagonals.css";
+import { McForms } from "../components/McForms";
 
 ---
 
 <Layout title="Sei Whale">
   <Navbar client:load />
   <Hero client:load />
+  <McForms client:load />
+  <Divider />
   <Chart client:load />
   <Divider />
   <Memes client:load />
