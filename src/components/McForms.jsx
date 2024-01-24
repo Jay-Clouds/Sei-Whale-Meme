@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import SwMcForms from "../assets/images/swmcforms.gif?url";
 
 
-
 export const McForms = () => (
   <section className="w-full bg-customDarkBg2 mt-10 mb-10 lg:my-20 justify-center items-center"
   id="McForms"
