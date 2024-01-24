@@ -3,19 +3,61 @@ import { motion } from "framer-motion";
 
 const FAQData = [
   {
-    question: "Wen airdrop? 🪂",
-    answer:
-      "Do not ask any questions, buy and hold! We are going to the moon 🚀",
+    question: "💼 What wallets to use?",
+    answer: (
+      <>
+        <span className="text-customPrimary">● </span><a href="https://compasswallet.io/" className="hover:text-[#48a6bd] transition duration-200">Compass</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://www.leapwallet.io/cosmos" className="hover:text-[#48a6bd] transition duration-200">Leap</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://www.keplr.app/" className="hover:text-[#48a6bd] transition duration-200">Keplr</a>
+      </>
+    ),
   },
   {
-    question: "What's the total supply? 📦",
-    answer:
-      "Do not ask any questions, buy and hold! We are going to the moon 🚀",
+    question: "💸 Move funds to SEI wallet?",
+    answer: (
+      <>
+        You can purchase $SEI directly from a CEX like Coinbase and Binance and send them directly to your wallet
+        <br />
+        <br />
+        <span className="font-semibold">Bridge funds through SEI dApp</span>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://simpleswap.io/" className="hover:text-[#48a6bd] transition duration-200">Simpleswap</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://changenow.io/?from=sol&to=sei" className="hover:text-[#48a6bd] transition duration-200">Changenow</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://app.sei.io/bridge" className="hover:text-[#48a6bd] transition duration-200">Sei Bridge</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://app.rocketx.exchange/swap" className="hover:text-[#48a6bd] transition duration-200">RocketX</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://swapspace.co/" className="hover:text-[#48a6bd] transition duration-200">Swapspace</a>
+        <br />
+        <span className="text-customPrimary">● </span><a href="https://portalbridge.com/" className="hover:text-[#48a6bd] transition duration-200">Portal</a>
+      </>
+    ),
   },
   {
-    question: "What's the market cap? 📈",
-    answer:
-      "Do not ask any questions, buy and hold! We are going to the moon 🚀",
+    question: "🪙 How to view Sei Whale tokens in wallet?",
+    answer: (
+      <>
+        <span className="text-customPrimary">● </span>Copy CA:{" "}
+        <span
+          className="text-sm cursor-pointer text-customPrimary hover:text-customSecondary"
+          onClick={() =>
+            copyToClipboard(
+              "sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j"
+            )
+          }
+        >
+          Click to copy
+        </span>
+        <br />
+        <span className="text-customPrimary">● </span>Select manage tokens or add tokens
+        <br />
+        <span className="text-customPrimary">● </span>Paste CA and toggle on to display token (cw20)
+      </>
+    ),
   },
 ];
 
@@ -57,10 +99,14 @@ export const FAQ = () => (
 const FAQBox = ({ defaultOpen, title, content }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
+  const handleBoxClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div
       className="pt-2 sm:pt-6 pb-2 px-3 sm:px-8  rounded-3xl bg-customDarkBg3 custom-border-gray-darker mb-4 relative hover:bg-customDarkBg3Hover cursor-pointer"
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={handleBoxClick}
     >
       <div className="flex flex-col p-2  justify-center items-start">
         <h3 className=" custom-content-title pt-3 sm:pt-0 pr-8 sm:pr-0">
@@ -96,4 +142,14 @@ const FAQBox = ({ defaultOpen, title, content }) => {
       </div>
     </div>
   );
+};
+
+const copyToClipboard = async (event) => {
+  event.stopPropagation();
+  try {
+    await navigator.clipboard.writeText(text);
+    setIsCopied(true);
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
 };

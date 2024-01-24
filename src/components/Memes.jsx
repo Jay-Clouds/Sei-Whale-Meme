@@ -20,7 +20,7 @@ export const Memes = () => (
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-        <div className="w-full mb-12 lg:mb-0 justify-center">
+        <div className="w-full mb-12 lg:mb-0 justify-center pb-12">
           <div className="mx-auto lg:mx-auto">
             <h2 className="text-customSecondary text-center mt-6 mb-16 lg:text-5xl text-4xl xl:text-5xl font-bold tracking-normal">
               Memes

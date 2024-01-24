@@ -3,16 +3,17 @@ import { motion } from "framer-motion";
 
 import { BuyModal } from "./BuyModal";
 import SeiWhale from "../assets/images/SeiWhale.png?url";
+import JayXpost from "../assets/images/jayxswpost.png?url";
 
 export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section
-      className="w-screen flex justify-center items-center bg-customDarkBg1 mb-[14vw] md:mb-[9vw] lg:mb-[5vw] xl:mb-[6.5vw] 2xl:mb-30 hero-bg-gradient pb-12 sm:pb-16 md:pb-22 lg:pb-0"
+    className="w-screen flex justify-center items-center bg-customDarkBg1 mb-[3.75vw] md:mb-[2.5vw] lg:mb-[2vw] xl:mb-[1.5vw] 2xl:mb-7.5 hero-bg-gradient pb-32 sm:pb-36 md:pb-44 lg:pb-0"
       id="home"
     >
-      <div className="w-full md:w-[800px] xl:w-[900px] flex flex-col justify-center items-center pt-16 md:pt-16 lg:pt-20 text-center">
+      <div className="w-screen md:w-[800px] xl:w-[900px] flex flex-col justify-center items-center pt-16 md:pt-16 lg:pt-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,8 +29,7 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
         >
           <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-7xl font-bold tracking-wide  text-white  px-8 sm:px-8 md:px-20 lg:px-4">
-            <span className="inline md:hidden">Sei Whale 🐳</span>
-            <span className="hidden md:inline">Sei The Whale 🐳</span>
+            <span className="inline">Sei Whale 🐳</span>
           </div>
           <div className="justify-center items-center flex flex-col sm:flex-row gap-2 sm:gap-4 mt-10">
             <img src={SeiWhale} alt="Sei Whale" width="300" height="300">
@@ -44,7 +44,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="text-customGrayText text-xs lg:text-sm xl:text-base sm:text-sm mt-1 px-12 sm:px-48 ">
+          <div className="w-full text-customGrayText text-2xs lg:text-sm xl:text-base sm:text-sm mt-1">
             sei19u0lgmeykqxq4vwmtvcm3jt20txsjvy4e92t6qxpea5u7j82t6pq4zfg0j
           </div>
         </motion.div>
@@ -54,7 +54,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div className="flex flex-col gap-2 sm:flex-row mt-14 mb-16 sm:mb-32 justify-center">
+          <div className="flex flex-col gap-2 sm:flex-row mt-14 mb-12 sm:mb-12 justify-center">
             <div
               className="custom-button-colored w-64 sm:w-52 h-12 mr-0 sm:mr-4 lg:mr-6 mb-2 sm:mb-0"
               onClick={() => setIsModalOpen(true)}
@@ -63,7 +63,7 @@ export const Hero = () => {
             </div>
             <a
               href="#chart"
-              className="w-64 sm:w-52 h-12 rounded-xl font-bold text-white border border-solid  flex justify-center items-center cursor-pointer bg-customDarkBg2 hover:bg-customDarkBg3 border-customPrimary transition"
+              className="w-64 sm:w-52 h-12 rounded-xl font-bold text-white border border-solid flex justify-center items-center cursor-pointer bg-customDarkBg2 hover:bg-customDarkBg3 border-customPrimary transition"
             >
               📈 Chart
             </a>
@@ -74,8 +74,11 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0, zIndex: 20 }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div className="text-customGrayText text-xs lg:text-sm xl:text-base sm:text-sm mt-1 pb-6 px-12 sm:px-22 ">
-           Sei the Whale 🐳 is the flagship meme token of the SEI network. Named after the Sei Whale by <span className="text-customPrimary">Jay the founder of SEI</span>, one of the fastest whales <span className="text-customPrimary">=fast transactions</span> that swims in deep waters <span className="text-customPrimary">=deep liqudity</span>. Sei the Whale is a community-driven token that aims to bring the SEI network to the masses
+          {/*<div className="text-customGrayText text-xs lg:text-sm xl:text-base sm:text-sm mt-1 pb-6 px-12 sm:px-22 ">
+           Sei the Whale 🐳 is the flagship meme token of the SEI network!
+          </div>*/}
+          <div className="flex justify-center items-center mb-16">
+            <img src={JayXpost} alt="Jay X Post" className="max-w-xs sm:max-w-md rounded-lg"></img>
           </div>
           <div className="text-customPrimary font-bold text-xs lg:text-sm xl:text-base sm:text-sm mt-8 px-3 sm:px-6 flex justify-center">
           <div className="flex space-x-8">

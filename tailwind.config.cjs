@@ -20,6 +20,9 @@ module.exports = {
       fontFamily: {
         Inter: "Inter",
       },
+      fontSize: {
+        '2xs': '0.5rem',
+      },
       screens: {
         xs: "530px",
         sm: "640px",
