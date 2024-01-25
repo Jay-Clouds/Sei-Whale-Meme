@@ -1,0 +1,1 @@
+import{j as r}from"./jsx-runtime.G4i-1Giy.js";import"./index.UCAuQZPX.js";const e=()=>r.jsx("div",{className:"w-full lg:w-3/5 mx-auto",children:r.jsx("div",{className:"border-t border-customGrayBorder"})});export{e as Divider};
