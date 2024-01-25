@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "../components/Navbar.jsx";
+import { Hero } from "../components/Hero.jsx";
+import { McForms } from "../components/McForms";
+import { Chart } from "../components/Chart.jsx";
+import { Memes } from "../components/Memes.jsx";
+import { FAQ } from "../components/FAQ.jsx";
+import { Brands } from "../components/Brands.jsx";
+import { Divider } from "../components/Divider";
+import { Footer } from "../components/Footer.jsx";
+import { ScrollUpButton } from "../components/ScrollUpButton";
+import "../styles/Theme.css";
+import "../styles/Diagonals.css";
+
+---
+
+<Layout title="Sei Whale">
+  <Navbar client:load />
+  <Hero client:load />
+  <McForms client:load />
+  <Divider client:load/>
+  <Chart client:load />
+  <Divider client:load/>
+  <Memes client:load />
+  <Brands client:load />
+  <FAQ client:load />
+  <Footer client:load/>
+  <ScrollUpButton client:load />
+</Layout>
