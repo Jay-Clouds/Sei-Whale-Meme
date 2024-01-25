@@ -21,7 +21,7 @@ export const Hero = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="text-customPrimary text-sm sm:text-base  mb-6 sm:mt-16 mt-8  font-bold">
-            🤑 Ticker $SEI
+           Ticker $SEI
           </div>
         </motion.div>
         <motion.div
