@@ -17,6 +17,7 @@
     "@fontsource/inter": "^4.5.15",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "@vercel/nft": "^0.26.2",
     "astro": "^4.0.3",
     "framer-motion": "^10.16.16",
     "npm-check-updates": "^16.10.7",
